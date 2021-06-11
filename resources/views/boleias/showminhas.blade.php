@@ -1,0 +1,104 @@
+<x-app-layout>
+    <x-slot name="header">
+        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+            Show Boleia
+        </h2>
+    </x-slot>
+
+    <div>
+        <div class="max-w-6xl mx-auto py-10 sm:px-6 lg:px-8">
+
+
+            <div class="bg-white shadow overflow-hidden sm:rounded-lg">
+                <div class="px-4 py-5 sm:px-6">
+                  <h3 class="text-lg leading-6 font-medium text-gray-900">
+                    Boleia Information
+                  </h3>
+                  <p class="mt-1 max-w-2xl text-sm text-gray-500">
+                    Details and price of the boleia
+                  </p>
+                </div>
+                <div class="border-t border-gray-200">
+                  <dl>
+                    <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                      <dt class="text-sm font-medium text-gray-500">
+                        Origem
+                      </dt>
+                      <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                        {{ $boleia->origem }}
+                      </dd>
+                    </div>
+                    <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                      <dt class="text-sm font-medium text-gray-500">
+                        Destino
+                      </dt>
+                      <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                        {{ $boleia->destino }}
+                      </dd>
+                    </div>
+                    <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                      <dt class="text-sm font-medium text-gray-500">
+                        Possíveis Paragens
+                      </dt>
+                      <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                        {{ $boleia->paragens }}
+                      </dd>
+                    </div>
+                    <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                      <dt class="text-sm font-medium text-gray-500">
+                        Lugares Disponíveis
+                      </dt>
+                      <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                        {{ $boleia->lugares }}
+                      </dd>
+                    </div>
+                    <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                      <dt class="text-sm font-medium text-gray-500">
+                        Idiomas
+                      </dt>
+                      <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                        {{ $boleia->idiomas }}
+                      </dd>
+                    </div>
+                    <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                        <dt class="text-sm font-medium text-gray-500">
+                          Preço
+                        </dt>
+                        <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                          {{ $boleia->preco }}€
+                        </dd>
+                      </div>
+                      <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                        <dt class="text-sm font-medium text-gray-500">
+                          Data
+                        </dt>
+                        <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                          {{ $boleia->date }}
+                        </dd>
+                      </div>
+                      <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                        <dt class="text-sm font-medium text-gray-500">
+                          Carro
+                        </dt>
+                        <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                          {{ $boleia->carro }}
+                        </dd>
+                      </div>
+                  </dl>
+                </div>
+              </div>
+              @can('task_access')
+              <div class="block mt-8 flex justify-center">
+                <a href="{{ route('boleias.minhas') }}" class=" bg-gray-200 hover:bg-gray-300 text-black font-bold py-2 px-4 rounded-md">Back to list</a>
+                    <form class="inline-block" action="{{ route('boleias.destroyminhas', $boleia->id) }}" method="POST" onsubmit="return confirm('Are you sure?');">
+                        <input type="hidden" name="_method" value="DELETE">
+                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                        <input type="submit" class="ml-4 border-2 border-red-600 text-red-700 hover:bg-red-100 py-2 px-4 rounded bg-transparent" value="Delete">
+                    </form>
+                </div>
+             @endcan
+
+        </div>
+    </div>
+</x-app-layout>
+
