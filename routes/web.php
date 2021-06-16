@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BoleiasController;
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 use App\Models\User;
 
@@ -28,6 +29,7 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
 
+Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 Route::group(['middleware' => 'auth'], function () {
 

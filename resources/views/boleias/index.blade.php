@@ -20,17 +20,26 @@
             <div class="block mb-8">
                 <a href="{{ route('boleias.create') }}" class="inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray disabled:opacity-25 transition ease-in-out duration-150">Add Boleia</a>
                 @can('task_access')
-                <a href="{{ route('boleias.minhas') }}"  class="inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray disabled:opacity-25 transition ease-in-out duration-150 ml-4">Minhas Boleias</a>
+                <a href="{{ route('boleias.minhas') }}"  class="inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray disabled:opacity-25 transition ease-in-out duration-150 ml-4">My Boleias</a>
                 @endcan
             </div>
 
             <div class="bg-gray-100 flex items-center justify-left rounded bm-2">
-                <form class="relative px-4 py-1 rounded border-2 border-gray-800 text-gray-800" action="{{ route('boleias.index') }}" method="get">
+                <form class="relative flex px-4 py-1 rounded border-2 border-gray-800 text-gray-800" action="{{ route('boleias.index') }}" method="get">
                     @csrf
-                          <input class="bg-gray-100 focus:outline-none text-sm text-black"  type="text"  placeholder="Filter boleias" name="search" value="{{ request()->query('search') }}"/>
-                          <input class="hover:text-gray-600 ml-6 bg-transparent inline-flex bg-transparent font-medium text-gray-800 " type="submit" value="Search">
+                    <div class="relative px-4 py-1 rounded border-2 border-gray-800 text-gray-800">
+                          <input class="bg-gray-100 focus:outline-none text-sm text-black"  type="text"  placeholder="Filtrar origem" name="search" value="{{ request()->query('search') }}"/>
+                    </div>
+                    <div class="ml-6 relative px-4 py-1 rounded border-2 border-gray-800 text-gray-800" >
+                            <input class="bg-gray-100 focus:outline-none text-sm text-black"  type="text"  placeholder="Filtrar destino" name="search2" value="{{ request()->query('search2') }}"/>
+                    </div>
+                    <div class="ml-6 relative px-4 py-1 rounded border-2 border-gray-800 text-gray-800" >
+                            <input class="bg-gray-100 focus:outline-none text-sm text-black"  type="text"  placeholder="Filtrar paragens" name="search3" value="{{ request()->query('search3') }}"/>
+                    </div>
+                    <input class="hover:text-gray-600 ml-6 bg-transparent inline-flex bg-transparent font-medium text-gray-800 " type="submit" value="Search">
                 </form>
             </div>
+
 
             @if ($boleias->count())
             <div class="mt-2 flex flex-col">
@@ -82,14 +91,14 @@
 
                                         <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
                                             <a href="{{ route('boleias.show', $boleia->id) }}" class="text-blue-600 hover:text-blue-900 mb-2 mr-2">View</a>
-                                            @can('user_access')
+                                            @if (auth()->user()->id == $boleia->user_id or auth()->user()->can('user_access'))
                                             <a href="{{ route('boleias.edit', $boleia->id) }}" class="text-indigo-600 hover:text-indigo-900 mb-2 mr-2">Edit</a>
                                             <form class="inline-block" action="{{ route('boleias.destroy', $boleia->id) }}" method="POST" onsubmit="return confirm('Are you sure?');">
                                                 <input type="hidden" name="_method" value="DELETE">
                                                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                                 <input type="submit" class="text-red-600 hover:text-red-900 mb-2 mr-2" value="Delete">
                                             </form>
-                                            @endcan
+                                            @endif
                                         </td>
                                     </tr>
                                 @endforeach
@@ -101,7 +110,7 @@
                             </div>
                             @else
                                 <p class="text-left">
-                                    No results found for <strong>{{ request()->query('search') }}</strong>
+                                    No results found.
                                 </p>
                             @endif
                     </div>

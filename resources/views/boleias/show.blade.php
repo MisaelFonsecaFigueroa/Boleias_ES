@@ -108,7 +108,6 @@
 
               <div class="block mt-8 flex justify-center">
                 <a href="{{ route('boleias.index') }}" class=" bg-gray-200 hover:bg-gray-300 text-black font-bold py-2 px-4 rounded-md">Back to list</a>
-                <a href="{{ route('boleias.index') }}" class="ml-6 bg-gray-800 tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray disabled:opacity-25 transition ease-in-out duration-150 text-white font-bold py-2 px-4 border border-transparent rounded-md ">Aceitar</a>
             </div>
 
         </div>

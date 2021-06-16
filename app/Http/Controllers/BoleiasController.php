@@ -19,23 +19,36 @@ class BoleiasController extends Controller
         abort_if(Gate::denies('task_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
         $search = request()->query('search');
-        //$minhas = request()->;
+        $search2 = request()->query('search2');
+        $search3 = request()->query('search3');
 
-
+        //FILTROS
         if ($search){
-            $boleias = Boleia::where('origem', 'LIKE', "%{$search}%")->orWhere('destino', 'LIKE', "%{$search}%")->orWhere('paragens', 'LIKE', "%{$search}%")->with('user')->paginate(20);
-        }else{
+            $boleias = Boleia::where('origem', 'LIKE', "%{$search}%")->with('user')->paginate(20);
+        }
+        else if ($search2){
+            $boleias = Boleia::where('destino', 'LIKE', "%{$search2}%")->with('user')->paginate(20);
+        }
+        else if ($search3){
+            $boleias = Boleia::where('paragens', 'LIKE', "%{$search3}%")->with('user')->paginate(20);
+        }
+        else if ($search and $search2 and $search3 ){
+            $boleias = Boleia::where([['origem', 'LIKE', "%{$search}%"],['paragens','LIKE', "%{$search3}%"], ['destino','LIKE', "%{$search2}%"]])->with('user')->paginate(20);
+        }
+        else if ($search != "" and $search2 != ""){
+            $boleias = Boleia::where([['origem', 'LIKE', "%{$search}%"], ['destino','LIKE', "%{$search2}%"]])->with('user')->paginate(20);
+        }
+
+        else if ($search != "" and $search3!= ""){
+            $boleias = Boleia::where([['origem', 'LIKE', "%{$search}%"], ['paragens','LIKE', "%{$search3}%"]])->with('user')->paginate(20);
+        }
+        else if ($search2 != "" and $search3 != ""){
+            $boleias = Boleia::where([['destino','LIKE',"%{$search2}%"], ['paragens','LIKE', "%{$search3}%"]])->with('user')->paginate(20);
+        }
+       else{
             $boleias = Boleia::orderBy('id', 'DESC')->with('user')->paginate(20);
         }
         return view('boleias.index', compact('boleias', 'search'))->with('i', ($request->input('page', 1)-1)*20);
-
-
-        /*
-        abort_if(Gate::denies('task_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
-
-        $boleias = Boleia::all();
-
-        return view('boleias.index', compact('boleias'));*/
     }
 
 

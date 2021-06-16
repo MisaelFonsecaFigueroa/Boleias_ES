@@ -17,7 +17,7 @@
     <!-- Define your gradient here - use online tools to find a gradient matching your branding-->
     <style>
         .gradient {
-            background: linear-gradient(90deg, #3f48cc 0%, #5e63a6 100%);
+            background: linear-gradient(90deg, #2d3655 0%, #374268 100%);
         }
 
     </style>
@@ -31,7 +31,7 @@
                 <a class="toggleColour text-white no-underline hover:no-underline font-bold text-xl lg:text-4xl"
                     href="#">
                     <!--Icon from: http://www.potlabicons.com/ -->
-                    <img src="/images/logo.png" alt="bar" class="h-8 fill-current- inline">
+                    <img src="/images/logo.png" alt="bar" class="h-10 w-15 fill-current- inline">
 
                     BOLEIAS
                 </a>
@@ -56,11 +56,11 @@
                 </ul>
             @else
                 <a href="{{ route('login') }}" id="navAction"
-                    class="mx-auto lg:mx-0 hover:underline bg-white text-gray-800 font-bold rounded-full mt-4 lg:mt-0 py-4 px-8 shadow opacity-75 focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
+                    class="mx-auto lg:mx-0 hover:underline bg-white text-gray-800 font-bold rounded-full mt-4 lg:mt-0 py-2 px-9 shadow opacity-75 focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
                     Login
                 </a>
                 <a href="{{ route('register') }}" id="navAction"
-                    class="ml-4 mx-auto lg:mx-4 hover:underline bg-white text-gray-800 font-bold rounded-full mt-4 lg:mt-0 py-4 px-8 shadow opacity-75 focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
+                    class="ml-4 mx-auto lg:mx-4 hover:underline bg-white text-gray-800 font-bold rounded-full mt-4 lg:mt-0 py-2 px-6 shadow opacity-75 focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
                     Register
                 </a>
                 @endif
@@ -87,20 +87,20 @@
             </div>
             <!--Right Col-->
             <div class="w-full md:w-3/5 py-6 text-center rounded md-shadow">
-                <img class="w-full md:w-4/5 z-50 rounded md-shadow" src="/images/car-driver-passenger.jpg" />
+                <img class="w-full md:w-4/5 z-50 rounded md-shadow" src="/images/boleia4.png" />
             </div>
         </div>
     </div>
 
     <!--footer-->
-    <footer class="bg-white fixed bottom-0 w-full">
+    <footer class="bg-white fixed bottom-0 w-full h-15">
         <div class="container mx-auto px-8">
-            <div class="w-full flex flex-col md:flex-row py-6">
+            <div class="w-full flex flex-col md:flex-row py-4">
                 <div class="flex-1 mb-6 text-black">
 
                     <a class="text-pink-600 no-underline hover:no-underline font-bold text-2xl lg:text-4xl" href="#">
                         <!--Icon from: http://www.potlabicons.com/ -->
-                        <img src="/images/logoRosa.png" alt="bar" class="h-8 fill-current- inline">
+                        <img src="/images/logoRosa.png" alt="bar" class="h-10 fill-current- inline">
                         BOLEIAS
                     </a>
                 </div>
@@ -167,8 +167,6 @@
                 </div>
             </div>
         </div>
-        <a href="https://www.freepik.com/free-photos-vectors/background" class="text-gray-500">Background vector created
-            by freepik - www.freepik.com</a>
     </footer>
     <!-- jQuery if you need it
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -219,7 +217,7 @@
 
     </script>
     <script>
-        
+
 
         var navMenuDiv = document.getElementById("nav-content");
         var navMenu = document.getElementById("nav-toggle");

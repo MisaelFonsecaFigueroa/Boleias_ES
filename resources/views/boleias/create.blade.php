@@ -13,7 +13,7 @@
                     <div class="shadow overflow-hidden sm:rounded-md">
                         <div class="px-4 py-5 bg-white sm:p-6">
                             <label for="origem" class="block font-medium text-sm text-gray-700">Origem</label>
-                            <input type="text" name="origem" id="origem" type="text" class="form-input rounded-md shadow-sm mt-1 block w-full"
+                            <input type="text" name="origem" id="origem" type="text" class="bg-gray-100 form-input rounded-md shadow-sm mt-1 block w-full"
                                    value="{{ old('origem', '') }}" />
                             @error('origem')
                                 <p class="text-sm text-red-600">{{ $message }}</p>
@@ -21,7 +21,7 @@
                         </div>
                         <div class="px-4 py-5 bg-white sm:p-6">
                             <label for="destino" class="block font-medium text-sm text-gray-700">Destino</label>
-                            <input type="text" name="destino" id="destino" type="text" class="form-input rounded-md shadow-sm mt-1 block w-full"
+                            <input type="text" name="destino" id="destino" type="text" class="bg-gray-100 form-input rounded-md shadow-sm mt-1 block w-full"
                                    value="{{ old('destino', '') }}" />
                             @error('destino')
                                 <p class="text-sm text-red-600">{{ $message }}</p>
@@ -29,7 +29,7 @@
                         </div>
                         <div class="px-4 py-5 bg-white sm:p-6">
                             <label for="paragens" class="block font-medium text-sm text-gray-700">Possíveis Paragens</label>
-                            <input type="text" name="paragens" id="paragens" type="text" class="form-input rounded-md shadow-sm mt-1 block w-full"
+                            <input type="text" name="paragens" id="paragens" type="text" class="bg-gray-100 form-input rounded-md shadow-sm mt-1 block w-full"
                                    value="{{ old('paragens', '') }}" />
                             @error('paragens')
                                 <p class="text-sm text-red-600">{{ $message }}</p>
@@ -37,7 +37,7 @@
                         </div>
                         <div class="px-4 py-5 bg-white sm:p-6">
                             <label for="lugares" class="block font-medium text-sm text-gray-700">Lugares Disponíveis</label>
-                            <input name="lugares" id="lugares" type="number" class="form-input rounded-md shadow-sm mt-1 block w-full"
+                            <input name="lugares" id="lugares" type="number" class="bg-gray-100 form-input rounded-md shadow-sm mt-1 block w-full"
                                    value="{{ old('lugares', '') }}" />
                             @error('lugares')
                                 <p class="text-sm text-red-600">{{ $message }}</p>
@@ -45,7 +45,7 @@
                         </div>
                         <div class="px-4 py-5 bg-white sm:p-6">
                             <label for="idiomas" class="block font-medium text-sm text-gray-700">Idiomas</label>
-                            <input type="text" name="idiomas" id="idiomas" type="text" class="form-input rounded-md shadow-sm mt-1 block w-full"
+                            <input type="text" name="idiomas" id="idiomas" type="text" class="bg-gray-100 form-input rounded-md shadow-sm mt-1 block w-full"
                                    value="{{ old('idiomas', '') }}" />
                             @error('idiomas')
                                 <p class="text-sm text-red-600">{{ $message }}</p>
@@ -53,7 +53,7 @@
                         </div>
                         <div class="px-4 py-5 bg-white sm:p-6">
                             <label for="preco" class="block font-medium text-sm text-gray-700">Preço</label>
-                            <input type="number" step="0.01" name="preco" id="preco" class="form-input rounded-md shadow-sm mt-1 block w-full"
+                            <input type="number" step="0.01" name="preco" id="preco" class="bg-gray-100 form-input rounded-md shadow-sm mt-1 block w-full"
                                    value="{{ old('preco', '') }}" />
                             @error('preco')
                                 <p class="text-sm text-red-600">{{ $message }}</p>
@@ -61,7 +61,7 @@
                         </div>
                         <div class="px-4 py-5 bg-white sm:p-6">
                             <label for="carro" class="block font-medium text-sm text-gray-700">Carro</label>
-                            <input type="text" name="carro" id="carro" type="text" class="form-input rounded-md shadow-sm mt-1 block w-full"
+                            <input type="text" name="carro" id="carro" type="text" class="bg-gray-100 form-input rounded-md shadow-sm mt-1 block w-full"
                                    value="{{ old('carro', '') }}" />
                             @error('carro')
                                 <p class="text-sm text-red-600">{{ $message }}</p>
